@@ -1,66 +1,120 @@
-📌 ADHD Diagnosis - Stage 2 (Modelling & Explainability)
+🧠 ADHD Diagnosis using fMRI and Socio-Emotional Data
+Supporting early and fair ADHD detection with explainable AI
+📌 Overview
+This project was developed as part of my MSc Computer Science coursework at the University of Essex. The goal is to build an explainable machine learning system to assist in diagnosing ADHD in adolescents using functional MRI brain imaging, socio-demographic, emotional, and parenting data.
 
-Project Overview
-----------------
-This phase of the project focuses on training, evaluating, and explaining machine learning models 
-for predicting ADHD diagnosis using a hybrid dataset combining socio-demographic and functional connectome features.
+The challenge was not just to build accurate models, but to detect gender bias, ensure fairness, and make model predictions interpretable — especially given that female ADHD cases are often underdiagnosed in real-world healthcare.
 
-The models are evaluated based on accuracy, fairness (especially across gender), and explainability in compliance with NHS & GDPR expectations.
+🎯 Objectives
+Predict ADHD diagnosis and biological sex using multi-modal data
 
-Files Included
---------------
-📂 ADHD_Stage2/
-│-- README.txt                          # This file
-│-- stage2.ipynb                        # Final modelling notebook
-│-- data.ipynb                          # Preprocessed Stage 1 and feature engineering
-│-- 📂 Data/
-│   ├── final_hybrid_dataset.csv        # Fully cleaned hybrid dataset
-│   ├── train_dataset.csv               # Final training set (after split)
-│   ├── test_dataset.csv                # Final test set (after split)
-│-- 📂 Reports/
-│   ├── SHAP plots                      # Feature explanation plots for LR & MLP
-│   ├── confusion_matrices.png          # Visual comparison of model predictions
+Identify and address potential gender bias in model performance
 
-Models Implemented
-------------------
-1️⃣ Random Forest (RF)
-- Tree-based model with strong performance
-- Accuracy: 84.0%, F1 Score: 0.83
-- Cross-validated and analyzed using permutation feature importance
+Build explainable AI models using SHAP/LIME
 
-2️⃣ Logistic Regression (LR)
-- Interpretable baseline model with elasticnet regularization
-- Accuracy: 83.0%, F1 Score: 0.83
-- SHAP explainability included
+Present results to a simulated NHS review board, focused on trust, utility, and fairness
 
-3️⃣ MLP Neural Network (SOTA)
-- Deep learning model with BatchNorm, Dropout
-- Accuracy: 86.1%, F1 Score (ADHD): 0.90
-- Highest performer with best gender balance
-- Manual 5-fold CV confirms robustness (Mean F1: 0.8038)
-- SHAP used for feature explainability
+🛠️ Tools & Technologies
+Languages & Libraries: Python, Pandas, NumPy, Scikit-learn, Seaborn, SHAP, LIME
 
-Gender-Based Fairness
-----------------------
-✔ Gender-specific diagnosis charts included
-✔ Fairness table shows significant improvement in ADHD detection among females in MLP
-✔ Male: 102 diagnosed | Female: 45 diagnosed
+Notebook Environment: Jupyter Notebook
 
-How to Run the Notebook
------------------------
-1️⃣ Environment:
-Ensure the following libraries are installed:
-pandas, numpy, seaborn, matplotlib, sklearn, shap, tensorflow
+Techniques:
 
-2️⃣ Open stage2.ipynb and run all cells in order.
+Exploratory Data Analysis (EDA)
 
-3️⃣ Visual outputs:
-- Confusion matrices, classification reports
-- SHAP plots and gender distribution visualizations
+Data Cleaning & Preprocessing
 
-Conclusion
-----------
-✔ MLP Neural Network outperformed RF and LR
-✔ Bias evaluation confirms gender fairness
-✔ SHAP ensures model explainability for NHS deployment
-✔ Final model is deployment-ready and aligned with real-world ADHD screening goals
+Train/Test split with Cross-Validation
+
+Model selection (Random Forest, Logistic Regression, etc.)
+
+Performance metrics: Accuracy, Precision, Recall, F1 Score
+
+Explainability: SHAP (TreeExplainer), LIME (tabular classifier)
+
+Bias & fairness evaluation
+
+📊 Dataset
+The dataset was provided by the university as part of a real-world simulation. It includes:
+
+fMRI brain imaging data (functional activity patterns)
+
+Demographic information (age, sex, family background)
+
+Emotional and parenting factors
+
+Due to GDPR and assignment policy, the dataset is not included in this repo. Please contact me for details.
+
+🧪 Model Development Workflow
+Data Exploration
+
+Class imbalance analysis
+
+Gender distribution
+
+Correlation heatmaps and visualizations
+
+Preprocessing
+
+Handling missing values
+
+Feature encoding & standardization
+
+Dimensionality reduction (if applied)
+
+Model Training
+
+Trained multiple models (Random Forest, Logistic Regression, SVM)
+
+Evaluated using k-fold cross-validation
+
+Tuned hyperparameters for optimal performance
+
+Explainability
+
+Used SHAP to interpret feature impact
+
+LIME used for local instance-level explanation
+
+Gender-bias breakdown in feature influence
+
+Evaluation & Ethics
+
+Compared model performance across genders
+
+Reflected on bias, utility, and limitations
+
+Presented findings to a simulated NHS panel
+
+🏆 Key Results
+Achieved consistent prediction performance with Random Forest (balanced accuracy)
+
+SHAP analysis revealed key predictive features differed across genders
+
+Identified areas where the model underperforms for female samples, enabling transparency
+
+Final presentation received distinction-level feedback (80%+) from academic reviewers
+
+📁 Folder Structure (Recommended)
+plaintext
+Copy
+Edit
+📦adhd-diagnosis-ml
+ ┣ 📂notebooks
+ ┃ ┣ 📜stage1.ipynb
+ ┃ ┣ 📜stage2.ipynbb
+ ┣ 📂reports
+ ┃ ┗ 📜nhs_presentation.pdf
+ ┣ 📜README.md
+ ┣ 📜requirements.txt
+ ┗ 📜.gitignore
+🧠 Future Improvements
+Apply deep learning models (CNNs/RNNs) if raw fMRI imaging becomes available
+
+Explore bias mitigation algorithms
+
+Extend pipeline for real-time clinical integration
+
+🤝 Let's Connect
+If you’re interested in this work or want to collaborate on similar healthcare + AI projects, feel free to reach out via LinkedIn.
